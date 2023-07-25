@@ -1,4 +1,4 @@
-ARG ES_VERSION=8.8.0
+ARG ES_VERSION=8.8.2
 FROM docker.elastic.co/elasticsearch/elasticsearch:$ES_VERSION as builder
 
 USER root
