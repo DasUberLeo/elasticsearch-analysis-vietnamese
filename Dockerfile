@@ -1,7 +1,7 @@
 ARG ES_VERSION=8.8.0
 FROM docker.elastic.co/elasticsearch/elasticsearch:$ES_VERSION as builder
 
-USER root
+USER elasticsearch
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -y && apt-get install -y software-properties-common build-essential
