@@ -34,7 +34,6 @@ RUN mvn verify clean --fail-never
 RUN mvn --batch-mode -Dmaven.test.skip -e package
 
 FROM docker.elastic.co/elasticsearch/elasticsearch:$ES_VERSION
-ARG ES_VERSION
 ARG COCCOC_INSTALL_PATH=/usr/local
 ARG COCCOC_DICT_PATH=$COCCOC_INSTALL_PATH/share/tokenizer/dicts
 
