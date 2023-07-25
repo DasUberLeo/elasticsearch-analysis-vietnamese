@@ -32,11 +32,11 @@ ENV PATH=$MVN_HOME/bin:$PATH
 COPY . /tmp/elasticsearch-analysis-vietnamese
 WORKDIR /tmp/elasticsearch-analysis-vietnamese
 
-USER elasticsearch
+#USER elasticsearch
 
-RUN mvn verify clean --fail-never
+#RUN mvn verify clean --fail-never
 
-USER root
+#USER root
 
 RUN mvn --batch-mode -Dmaven.test.skip -e package
 
