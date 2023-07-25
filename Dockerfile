@@ -41,6 +41,7 @@ WORKDIR /tmp/elasticsearch-analysis-vietnamese
 RUN mvn --batch-mode -Dmaven.test.skip -e package
 
 FROM docker.elastic.co/elasticsearch/elasticsearch:$ES_VERSION
+ARG ES_VERSION=8.8.2
 ARG COCCOC_INSTALL_PATH=/usr/local
 ARG COCCOC_DICT_PATH=$COCCOC_INSTALL_PATH/share/tokenizer/dicts
 
