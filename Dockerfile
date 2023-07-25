@@ -1,12 +1,15 @@
 ARG ES_VERSION=8.8.0
 FROM docker.elastic.co/elasticsearch/elasticsearch:$ES_VERSION as builder
 
-USER elasticsearch
+USER root
+
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -y && apt-get install -y software-properties-common build-essential
 RUN gcc --version
 RUN apt-get update -y && apt-get install -y make cmake pkg-config wget git
+
+USER elasticsearch
 
 ENV JAVA_HOME=/usr/share/elasticsearch/jdk
 ENV PATH=$JAVA_HOME/bin:$PATH
