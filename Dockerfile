@@ -35,6 +35,9 @@ WORKDIR /tmp/elasticsearch-analysis-vietnamese
 USER elasticsearch
 
 RUN mvn verify clean --fail-never
+
+USER root
+
 RUN mvn --batch-mode -Dmaven.test.skip -e package
 
 FROM docker.elastic.co/elasticsearch/elasticsearch:$ES_VERSION
