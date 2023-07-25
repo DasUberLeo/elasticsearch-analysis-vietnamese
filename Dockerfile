@@ -9,8 +9,6 @@ RUN apt-get update -y && apt-get install -y software-properties-common build-ess
 RUN gcc --version
 RUN apt-get update -y && apt-get install -y make cmake pkg-config wget git
 
-USER elasticsearch
-
 ENV JAVA_HOME=/usr/share/elasticsearch/jdk
 ENV PATH=$JAVA_HOME/bin:$PATH
 
@@ -33,6 +31,9 @@ ENV PATH=$MVN_HOME/bin:$PATH
 
 COPY . /tmp/elasticsearch-analysis-vietnamese
 WORKDIR /tmp/elasticsearch-analysis-vietnamese
+
+USER elasticsearch
+
 RUN mvn verify clean --fail-never
 RUN mvn --batch-mode -Dmaven.test.skip -e package
 
